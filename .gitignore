@@ -1,0 +1,27 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Ignore .terraform directories
+.terraform/*
+
+# Ignore any other potential large files or directories
+*.log
+*.bak
+*.swp
+.DS_Store
+
+# For Git LFS
+terraform-provider-aws_v5.82.2_x5
+
+# Node modules (if you have Node.js dependencies)
+node_modules/
