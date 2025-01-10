@@ -11,6 +11,12 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Example .gitignore file
+*.zip
+*.tar.gz
+.terraform/providers/registry.terraform.io/hashicorp/aws/5.82.2/linux_amd64/terraform-provider-aws_v5.82.2_x5
+
+
 # Ignore .terraform directories
 .terraform/*
 
@@ -25,3 +31,4 @@ terraform-provider-aws_v5.82.2_x5
 
 # Node modules (if you have Node.js dependencies)
 node_modules/
+
