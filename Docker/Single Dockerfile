@@ -1,0 +1,27 @@
+# Use the official Node-RED image as the base image
+FROM nodered/node-red:latest
+
+# Set the working directory
+WORKDIR /data
+
+# Copy the Node-RED flow files into the container
+COPY 01\ -\ Trigger\ a\ flow\ at\ startup.json /data/flows/
+COPY 02\ -\ Trigger\ a\ flow\ at\ regular\ intervals.json /data/flows/
+COPY 03\ -\ Trigger\ a\ flow\ at\ specific\ time.json /data/flows/
+
+
+# Copy additional configuration files
+COPY settings.js /data/settings.js
+COPY flows.json /data/flows.json
+
+# Copy the package.json to install dependencies
+COPY package.json /data/package.json
+
+# Install any additional Node-RED nodes and dependencies
+RUN npm install --unsafe-perm
+
+# Expose the default Node-RED port
+EXPOSE 1880
+
+# Start Node-RED
+CMD ["npm", "start", "--", "--userDir", "/data"]
