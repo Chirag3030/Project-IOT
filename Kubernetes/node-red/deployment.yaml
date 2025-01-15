@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-red-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-red
+  template:
+    metadata:
+      labels:
+        app: node-red
+    spec:
+      containers:
+      - name: node-red
+        image: nodered/node-red:latest
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 1880
+        envFrom:
+        - configMapRef:
+            name: nodered-config
+

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nodered-config
+data:
+  NODE_RED_SETTINGS_JS: "/data/settings.js"
+  NODE_RED_SETTINGS_FLOW: "/data/flows.json"

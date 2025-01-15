@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mosquitto-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mosquitto
+  template:
+    metadata:
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+      - name: mosquitto
+        image: eclipse-mosquitto:latest
+        ports:
+        - containerPort: 1883
+        - containerPort: 9001
+        volumeMounts:
+        - name: mosquitto-config
+          mountPath: /mosquitto/config
+        - name: mosquitto-data
+          mountPath: /mosquitto/data
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+      volumes:
+      - name: mosquitto-config
+        configMap:
+          name: mosquitto-config
+      - name: mosquitto-data
+        persistentVolumeClaim:
+          claimName: mosquitto-data-pvc
+
+
