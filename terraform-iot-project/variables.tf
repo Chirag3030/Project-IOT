@@ -56,6 +56,7 @@ variable "elb_health_check_target" {
 variable "elb_tags" {
   description = "Tags to apply to the ELB"
   type        = map(string)
+  default     = {}
 }
 
 variable "s3_bucket_name" {
@@ -79,8 +80,10 @@ variable "secret_value" {
 variable "elasticsearch_domain_name" {
   description = "The name of the Elasticsearch domain"
   type        = string
-  default     = "my-elasticsearch-domain"
+  default     = "my-es-domain"
 }
+
+
 
 variable "elasticsearch_version" {
   description = "The version of Elasticsearch"
@@ -294,9 +297,10 @@ variable "multi_az" {
   type        = bool
 }
 
-variable "tags" {
+variable "resource_tags" {
   description = "A map of tags to assign to the resource"
   type        = map(string)
+  default     = {}
 }
 
 variable "parameter_group_name" {

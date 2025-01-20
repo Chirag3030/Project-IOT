@@ -49,7 +49,7 @@ secret_name  = "Project-IOT-secret"
 secret_value = "Project-IOT-secret-value"
 
 # Elasticsearch Configuration
-elasticsearch_domain_name = "Project-IOT-elasticsearch-domain"
+elasticsearch_domain_name = "project-iot-domain"
 elasticsearch_version     = "7.10"
 elasticsearch_instance_type = "t3.medium"
 elasticsearch_volume_size   = 50
